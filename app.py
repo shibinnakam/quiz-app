@@ -53,7 +53,7 @@ def home():
 
 @app.route('/result')
 def result():
-    return render_template('result.html', score=score,total_questions=len(questions))
+    return render_template('result.html', score=score, total_questions=len(questions))
 
 @app.route('/reset', methods=['POST'])
 def reset():
@@ -63,4 +63,5 @@ def reset():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Modify this to run on all available IP addresses on port 5000
+    app.run(host="0.0.0.0", port=5000, debug=True)
